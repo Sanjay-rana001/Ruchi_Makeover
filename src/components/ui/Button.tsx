@@ -39,6 +39,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       </>
     );
 
+    if (variant === "primary") {
       const buttonClasses = cn(
         "relative flex items-center p-[4px] rounded-full bg-white border border-gray-200 group overflow-hidden shadow-sm hover:shadow-lg transition-shadow",
         className
