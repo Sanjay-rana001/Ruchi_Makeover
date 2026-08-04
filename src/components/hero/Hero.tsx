@@ -32,7 +32,7 @@ export function Hero() {
   const imageY = mousePos.y * 10;
 
   return (
-    <Section fullBleed className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 flex items-center bg-gradient-to-br from-background via-surface-muted to-accent-glow p-0 m-0 border-b border-border overflow-hidden">
+    <Section fullBleed className="relative min-h-[85vh] lg:min-h-[90vh] pt-20 flex items-center bg-gradient-to-br from-background via-surface-muted to-accent-glow p-0 m-0 border-b border-border overflow-hidden">
       
       {/* Subtle luxury editorial texture/grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(var(--foreground) 1.5px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -42,25 +42,20 @@ export function Hero() {
           
           {/* Left: Text Content */}
           <motion.div 
-            className="lg:col-span-6 flex flex-col justify-center h-full pt-12 lg:pt-32"
+            className="lg:col-span-6 flex flex-col justify-center h-full pt-8 lg:pt-20"
             animate={{ x: textX, y: textY }}
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
           >
             <Reveal delay={1.5} direction="up">
               <span className="text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-accent mb-8 block font-medium">
-                The Aesthetics Studio
+                Professional Makeup Artist
               </span>
             </Reveal>
 
             <div className="flex flex-col gap-1 mb-8">
               <Reveal delay={1.7}>
-                <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif text-foreground leading-[1] tracking-[-0.02em]">
-                  Elevating
-                </h1>
-              </Reveal>
-              <Reveal delay={1.9}>
                 <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif text-foreground leading-[1] tracking-[-0.02em] flex items-center gap-4">
-                  <span className="italic font-light text-foreground-muted">modern</span> beauty.
+                  <span className="italic font-light text-foreground-muted">Flawless</span> bridal & party makeup.
                 </h1>
               </Reveal>
             </div>
@@ -68,7 +63,7 @@ export function Hero() {
             <Reveal delay={2.1}>
               <div className="w-12 h-[1px] bg-accent mb-8" />
               <p className="text-base md:text-lg text-foreground-muted font-sans font-light max-w-md leading-relaxed mb-12">
-                A sanctuary designed for the modern aesthetic. We blend cutting-edge techniques with editorial vision to reveal your most pristine self.
+                Expert makeup services tailored to enhance your natural features for your most special occasions.
               </p>
             </Reveal>
 
@@ -80,7 +75,7 @@ export function Hero() {
               </Reveal>
               <Reveal delay={2.5}>
                 <Button variant="ghost" withArrow className="text-accent hover:text-foreground">
-                  EXPLORE SERVICES
+                  Explore Services
                 </Button>
               </Reveal>
             </div>

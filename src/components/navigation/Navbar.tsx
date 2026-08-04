@@ -5,14 +5,15 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/data/site";
 import MobileMenu from "./MobileMenu";
-import { Menu, X, ChevronsRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Button from "../ui/Button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black text-white h-20 flex items-center">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black text-white h-14 flex items-center">
         <div className="container mx-auto px-6 w-full flex items-center justify-between">
           
           {/* Logo */}
@@ -33,7 +34,7 @@ export default function Navbar() {
             </svg>
             
             {/* White Background Block */}
-            <div className="bg-white h-full px-12 flex items-center justify-center rounded-b-full gap-8 shadow-sm">
+            <div className="bg-white h-full px-8 md:px-12 flex items-center justify-center rounded-b-2xl gap-6 md:gap-8 shadow-sm">
               {siteData.navigation.map((item) => (
                 <Link 
                   key={item.name} 
@@ -53,14 +54,9 @@ export default function Navbar() {
 
           {/* Desktop Right Button */}
           <div className="hidden lg:flex items-center">
-            <Link href="#contact" className="flex items-center bg-white p-1 rounded-full cursor-pointer hover:scale-105 transition-transform group">
-              <div className="bg-black text-white px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap">
-                Contact Us
-              </div>
-              <div className="px-2 text-black">
-                <ChevronsRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
+            <Button variant="primary" href="#contact">
+              Contact Us
+            </Button>
           </div>
 
           {/* Mobile Toggle */}

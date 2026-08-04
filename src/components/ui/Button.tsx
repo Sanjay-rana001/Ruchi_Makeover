@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronsRight } from "lucide-react";
 import MagneticButton from "../motion/MagneticButton";
+import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "whatsapp";
@@ -11,8 +12,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", withArrow = false, children, ...props }, ref) => {
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  ({ className, variant = "primary", withArrow = false, href, children, ...props }, ref) => {
     
     const baseStyles = "relative inline-flex items-center justify-center gap-2 font-sans font-medium transition-all duration-500 overflow-hidden group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
     
@@ -38,16 +39,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       </>
     );
 
-    if (variant === "primary") {
-      return (
-        <button
-          ref={ref}
-          className={cn(
-            "relative flex items-center p-[4px] rounded-full bg-white border border-gray-200 group overflow-hidden shadow-sm hover:shadow-lg transition-shadow",
-            className
-          )}
-          {...props}
-        >
+      const buttonClasses = cn(
+        "relative flex items-center p-[4px] rounded-full bg-white border border-gray-200 group overflow-hidden shadow-sm hover:shadow-lg transition-shadow",
+        className
+      );
+
+      const content = (
+        <>
           {/* Background Sweep */}
           <div className="absolute inset-0 bg-white rounded-full -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-10" />
 
@@ -64,21 +62,46 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <ChevronsRight className="absolute left-0 w-4 h-4 text-black transition-all duration-700 ease-in-out group-hover:translate-x-8" />
             <ChevronsRight className="absolute left-0 w-4 h-4 text-black -translate-x-8 transition-all duration-700 ease-in-out group-hover:translate-x-0" />
           </div>
+        </>
+      );
+
+      if (href) {
+        return (
+          <Link href={href} className={buttonClasses} {...(props as any)}>
+            {content}
+          </Link>
+        );
+      }
+
+      return (
+        <button
+          ref={ref as React.Ref<HTMLButtonElement>}
+          className={buttonClasses}
+          {...props}
+        >
+          {content}
         </button>
       );
     }
 
-    const button = (
+    const otherButtonClasses = cn(baseStyles, variants[variant as keyof typeof variants], className);
+    if (href) {
+      return (
+        <Link href={href} className={otherButtonClasses} {...(props as any)}>
+          {buttonContent}
+        </Link>
+      );
+    }
+
+    return (
       <button
-        ref={ref}
-        className={cn(baseStyles, variants[variant as keyof typeof variants], className)}
+        ref={ref as React.Ref<HTMLButtonElement>}
+        className={otherButtonClasses}
         {...props}
       >
         {buttonContent}
       </button>
     );
-
-    return button;
   }
 );
 
