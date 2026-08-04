@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff0f3; /* Beautiful soft blush pink */
+  --foreground: #4a192c; /* Rich burgundy/plum */
+  --surface: #ffffff;
+  --surface-muted: #fbe6ea; /* Soft deeper pink */
+  --accent: #d9778e; /* Vibrant rose */
+  --accent-soft: #f2a7b8; /* Soft warm pink */
+  --border: #f7d2db;
+  --muted-text: #8e5466; /* Muted burgundy */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--muted-text);
+  --color-primary: var(--foreground);
+  --color-secondary: var(--surface-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+}
+
+/* Force light mode variables even if user system is dark, to maintain the requested pristine look */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff0f3;
+    --foreground: #4a192c;
+    --surface: #ffffff;
+    --surface-muted: #fbe6ea;
+    --accent: #d9778e;
+    --accent-soft: #f2a7b8;
+    --border: #f7d2db;
+    --muted-text: #8e5466;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
