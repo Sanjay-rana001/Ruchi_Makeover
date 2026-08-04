@@ -10,25 +10,25 @@ const steps = [
     id: "01",
     title: "Consult",
     description: "We begin with a deep dive into your vision, skin type, and event details. We discuss your preferences, inspirations, and any concerns to ensure we are perfectly aligned before picking up a single brush.",
-    image: "https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&q=80&w=1000",
+    image: "/media/images/about.png",
   },
   {
     id: "02",
     title: "Plan",
     description: "Next, we curate a customized beauty blueprint. From selecting the exact foundation match to planning the timeline for the event day, everything is meticulously organized so you can simply relax.",
-    image: "https://images.unsplash.com/photo-1512496015851-a1dc8a47468d?auto=format&fit=crop&q=80&w=1000",
+    image: "/media/images/skin.png",
   },
   {
     id: "03",
     title: "Create",
     description: "The execution phase. Using premium, long-lasting products, we build your look layer by layer. The focus is on flawless blending, enhancing your natural structure, and ensuring total comfort.",
-    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=1000",
+    image: "/media/images/bridal.png",
   },
   {
     id: "04",
     title: "Glow",
     description: "The final reveal. You step out looking absolutely radiant and feeling entirely like yourself, ready to turn heads and create memories with a look that will last all night.",
-    image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&q=80&w=1000",
+    image: "/media/images/party.png",
   },
 ];
 

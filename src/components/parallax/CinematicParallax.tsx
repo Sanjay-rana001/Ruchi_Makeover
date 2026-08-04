@@ -34,7 +34,7 @@ export function CinematicParallax() {
           }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=2000"
+            src="/media/images/bridal.png"
             alt="The Art of Beauty"
             fill
             className="object-cover opacity-60"

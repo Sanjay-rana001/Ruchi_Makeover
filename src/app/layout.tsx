@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Cormorant_Garamond } from "next/font/google";
+import { Outfit, Italiana } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/navigation/Navbar";
@@ -10,15 +10,14 @@ const fontSans = Outfit({
   variable: "--font-sans",
 });
 
-const fontSerif = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600", "700"],
+const fontSerif = Italiana({
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--font-serif",
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "The Aesthetics Studio | Luxury Beauty",
+  title: "Ruchi Makeover | Luxury Beauty",
   description: "Where beauty becomes an experience.",
 };
 

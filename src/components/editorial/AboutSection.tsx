@@ -59,8 +59,8 @@ export function AboutSection() {
                 className="w-full h-[120%] -top-[10%] relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&q=80&w=1200"
-                  alt="Beauty Expert Portrait"
+                  src="/media/images/about.png"
+                  alt="Top Beauty Expert Portrait"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 85vw, 40vw"
@@ -82,8 +82,8 @@ export function AboutSection() {
                 className="w-full h-[140%] -top-[20%] relative"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1596755389378-c11d4d03e54b?auto=format&fit=crop&q=80&w=800"
-                  alt="Makeup Details"
+                  src="/media/images/packages.png"
+                  alt="Premium Luxury Makeup Products"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 55vw, 25vw"

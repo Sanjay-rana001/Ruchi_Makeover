@@ -29,12 +29,8 @@ export const services: ServiceData[] = [
       "Hair Styling & Draping",
       "Premium Faux Lashes"
     ],
-    image: "https://images.unsplash.com/photo-1596755389378-c11d4d03e54b?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1512496015851-a1dc8a47468d?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/bridal.png",
+    gallery: []
   },
   {
     id: "02",
@@ -51,11 +47,8 @@ export const services: ServiceData[] = [
       "Basic Hair Styling",
       "Faux Lashes"
     ],
-    image: "https://images.unsplash.com/photo-1516975080661-460d3d5731b4?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1526888935184-a82d2a4b7efa?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/party.png",
+    gallery: []
   },
   {
     id: "03",
@@ -73,11 +66,8 @@ export const services: ServiceData[] = [
       "Relaxing Facial Massage",
       "Custom Mask Therapy"
     ],
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/skin.png",
+    gallery: []
   },
   {
     id: "04",
@@ -94,11 +84,8 @@ export const services: ServiceData[] = [
       "Hair Accessory Placement",
       "Long-hold Setting"
     ],
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/hair.png",
+    gallery: []
   },
   {
     id: "05",
@@ -115,11 +102,8 @@ export const services: ServiceData[] = [
       "Custom Tinting (if required)",
       "Aftercare Advice"
     ],
-    image: "https://images.unsplash.com/photo-1512496015851-a1dc8a47468d?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1588514107129-37f0785ea8db?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1629814545300-4b2a8d6e3c50?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/brows.png",
+    gallery: []
   },
   {
     id: "06",
@@ -136,10 +120,7 @@ export const services: ServiceData[] = [
       "Event Day Makeup & Hair",
       "Priority Booking"
     ],
-    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=2000",
-    gallery: [
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1512496015851-a1dc8a47468d?auto=format&fit=crop&q=80&w=1000"
-    ]
+    image: "/media/images/packages.png",
+    gallery: []
   }
 ];

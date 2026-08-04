@@ -14,8 +14,8 @@ export function HeroImage() {
       {/* Main Portrait */}
       <ImageReveal delay={1.5} className="w-full h-[85%] relative z-20 shadow-xl border border-background">
         <Image
-          src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop"
-          alt="Luxury beauty portrait"
+          src="/media/images/hero.png"
+          alt="Premium South Asian Bridal Makeup"
           fill
           className="object-cover object-center grayscale-[0.2]"
           priority

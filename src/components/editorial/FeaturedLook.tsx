@@ -31,7 +31,7 @@ export function FeaturedLook() {
             className="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1"
           >
             <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-primary mb-4 block">
+              <span className="text-xs font-bold tracking-widest uppercase text-accent mb-4 block">
                 Featured Look
               </span>
               <h2 className="font-serif text-5xl md:text-6xl text-foreground leading-[1.1] tracking-tight mb-6">
@@ -73,7 +73,7 @@ export function FeaturedLook() {
               className="absolute inset-0 w-full h-[120%] -top-[10%]"
             >
               <Image
-                src="https://images.unsplash.com/photo-1526888935184-a82d2a4b7efa?auto=format&fit=crop&q=80&w=1200"
+                src="/media/images/party.png"
                 alt="Soft Glam Featured Look"
                 fill
                 className="object-cover"
