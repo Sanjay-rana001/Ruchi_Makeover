@@ -11,7 +11,7 @@ const maskVariants = {
   hidden: { clipPath: "inset(100% 0 0 0)" },
   visible: { 
     clipPath: "inset(0% 0 0 0)",
-    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
+    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }
   }
 };
 
@@ -19,7 +19,7 @@ const imageScaleVariants = {
   hidden: { scale: 1.1 },
   visible: { 
     scale: 1,
-    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
+    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }
   }
 };
 
