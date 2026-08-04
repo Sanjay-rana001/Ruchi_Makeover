@@ -22,7 +22,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
       exit={{ opacity: 0, clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-50 bg-background flex flex-col justify-center px-6"
+      className="fixed inset-0 z-50 bg-black flex flex-col justify-center px-6"
     >
       <motion.div 
         variants={containerVars} 
@@ -37,7 +37,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
               <Link 
                 href={item.href} 
                 onClick={onClose}
-                className="text-4xl font-serif text-foreground hover:text-accent transition-colors"
+                className="text-4xl font-serif text-white hover:text-white/70 transition-colors"
               >
                 {item.name}
               </Link>
@@ -46,13 +46,13 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
         ))}
 
         <div className="overflow-hidden mt-8">
-          <motion.div variants={linkVars} className="flex flex-col gap-4 w-full">
-            <Button variant="primary" onClick={onClose} className="w-full">
-              BOOK APPOINTMENT
-            </Button>
-            <Button variant="secondary" onClick={onClose} className="w-full">
+          <motion.div variants={linkVars} className="flex flex-col gap-4 w-full mt-4">
+            <Link href="#booking" onClick={onClose} className="w-full bg-white text-black py-4 rounded-full font-bold uppercase tracking-widest text-sm flex items-center justify-center hover:bg-white/90 transition-colors">
+              Book Appointment
+            </Link>
+            <Link href={`https://wa.me/${siteData.social.whatsapp}`} onClick={onClose} className="w-full bg-transparent border border-white/20 text-white py-4 rounded-full font-bold uppercase tracking-widest text-sm flex items-center justify-center hover:bg-white/10 transition-colors">
               WhatsApp Us
-            </Button>
+            </Link>
           </motion.div>
         </div>
       </motion.div>

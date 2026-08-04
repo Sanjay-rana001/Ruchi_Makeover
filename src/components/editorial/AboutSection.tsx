@@ -43,7 +43,7 @@ export function AboutSection() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
         >
           {/* Left: Images */}
-          <div className="lg:col-span-6 relative h-[600px] md:h-[800px] w-full">
+          <div className="lg:col-span-6 relative h-[450px] md:h-[600px] lg:h-[800px] w-full">
             
             {/* Main Large Portrait */}
             <motion.div 
