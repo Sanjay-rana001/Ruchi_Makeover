@@ -1,42 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff0f3; /* Beautiful soft blush pink */
-  --foreground: #4a192c; /* Rich burgundy/plum */
-  --surface: #ffffff;
-  --surface-muted: #fbe6ea; /* Soft deeper pink */
-  --accent: #d9778e; /* Vibrant rose */
-  --accent-soft: #f2a7b8; /* Soft warm pink */
-  --border: #f7d2db;
-  --muted-text: #8e5466; /* Muted burgundy */
+  /* Core Structure */
+  --background: #fafafa; /* Aesthetic pearl white */
+  --surface: #ffffff; /* Pure white */
+  --surface-muted: #fff2f5; /* Softest warm blush */
+  
+  /* Typography */
+  --foreground: #341d25; /* Rich deep espresso/burgundy */
+  --foreground-muted: #826871; /* Soothing taupe */
+  
+  /* Borders */
+  --border: #f0d5df; /* Delicate pink-grey */
+
+  /* Brand Colors (Vibrant yet aesthetic/soothing) */
+  --accent: #e55c82; /* Vibrant Rose */
+  --accent-hover: #cc456a; /* Deep Rose */
+  --accent-soft: #f9c5d5; /* Soothing Petal */
+  --accent-glow: #fde8ef; /* Softest wash */
+  
+  /* Highlights & Utilities */
+  --highlight: #f5a77b; /* Soft Peach */
+  --highlight-soft: #fde3d6; /* Pale Peach */
+  --success: #63988f; /* Soothing Sage Green */
 }
 
 @theme {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
   --color-foreground: var(--foreground);
-  --color-foreground-muted: var(--muted-text);
+  --color-foreground-muted: var(--foreground-muted);
   --color-primary: var(--foreground);
   --color-secondary: var(--surface-muted);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-glow: var(--accent-glow);
   --color-border: var(--border);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-success: var(--success);
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, serif;
 }
 
-/* Force light mode variables even if user system is dark, to maintain the requested pristine look */
+/* Force light mode variables even if user system is dark, to maintain the pristine look */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fff0f3;
-    --foreground: #4a192c;
+    --background: #fafafa;
     --surface: #ffffff;
-    --surface-muted: #fbe6ea;
-    --accent: #d9778e;
-    --accent-soft: #f2a7b8;
-    --border: #f7d2db;
-    --muted-text: #8e5466;
+    --surface-muted: #fff2f5;
+    --foreground: #341d25;
+    --foreground-muted: #826871;
+    --border: #f0d5df;
+    --accent: #e55c82;
+    --accent-hover: #cc456a;
+    --accent-soft: #f9c5d5;
+    --accent-glow: #fde8ef;
+    --highlight: #f5a77b;
+    --highlight-soft: #fde3d6;
+    --success: #63988f;
   }
 }
 
