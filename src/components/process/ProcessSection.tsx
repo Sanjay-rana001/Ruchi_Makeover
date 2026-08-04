@@ -48,7 +48,7 @@ export function ProcessSection() {
   return (
     <section className="bg-background py-24 md:py-32" id="process">
       <Container>
-        <span className="text-xs font-bold tracking-widest uppercase text-primary mb-4 block">
+        <span className="text-xs font-bold tracking-widest uppercase text-accent mb-4 block">
           How It Works
         </span>
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-16 lg:mb-24">
@@ -65,7 +65,7 @@ export function ProcessSection() {
             
             {/* Vertical Progress Line (Active Fill) */}
             <motion.div 
-              className="absolute left-6 top-32 bottom-32 w-[2px] bg-primary origin-top"
+              className="absolute left-6 top-32 bottom-32 w-[2px] bg-accent origin-top"
               style={{ scaleY: smoothProgress }}
             />
 
@@ -111,7 +111,7 @@ export function ProcessSection() {
               <div className="flex flex-col gap-2">
                 <span className="font-serif text-3xl text-foreground/30">{step.id}</span>
                 <h3 className="font-serif text-2xl text-foreground">{step.title}</h3>
-                <p className="text-foreground/70 leading-relaxed text-sm md:text-base">
+                <p className="text-foreground-muted leading-relaxed text-sm md:text-base">
                   {step.description}
                 </p>
               </div>
@@ -139,10 +139,10 @@ function ProcessStep({ step, index, total, progress }: { step: any, index: numbe
       style={{ opacity }}
       className="pl-20 relative flex flex-col gap-4"
     >
-      <div className="absolute left-[1.15rem] top-2 w-3 h-3 rounded-full bg-background border-2 border-primary -translate-x-1/2 z-10" />
-      <span className="font-serif text-4xl text-foreground/20 absolute left-8 top-[-0.2rem]">{step.id}</span>
+      <div className="absolute left-[1.15rem] top-2 w-3 h-3 rounded-full bg-background border-2 border-accent -translate-x-1/2 z-10" />
+      <span className="font-serif text-5xl text-accent-soft absolute left-8 top-[-0.5rem]">{step.id}</span>
       <h3 className="font-serif text-3xl text-foreground">{step.title}</h3>
-      <p className="text-foreground/70 leading-relaxed text-lg max-w-md">
+      <p className="text-foreground-muted leading-relaxed text-lg max-w-md">
         {step.description}
       </p>
     </motion.div>

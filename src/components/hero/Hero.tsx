@@ -32,7 +32,7 @@ export function Hero() {
   const imageY = mousePos.y * 10;
 
   return (
-    <Section fullBleed className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 flex items-center bg-gradient-to-br from-[var(--background)] via-[var(--surface-muted)] to-[#f4d1db] p-0 m-0 border-b border-border/30 overflow-hidden">
+    <Section fullBleed className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 flex items-center bg-gradient-to-br from-background via-surface-muted to-accent-glow p-0 m-0 border-b border-border overflow-hidden">
       
       {/* Subtle luxury editorial texture/grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(var(--foreground) 1.5px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -60,14 +60,14 @@ export function Hero() {
               </Reveal>
               <Reveal delay={1.9}>
                 <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif text-foreground leading-[1] tracking-[-0.02em] flex items-center gap-4">
-                  <span className="italic font-light text-muted-text">modern</span> beauty.
+                  <span className="italic font-light text-foreground-muted">modern</span> beauty.
                 </h1>
               </Reveal>
             </div>
 
             <Reveal delay={2.1}>
               <div className="w-12 h-[1px] bg-accent mb-8" />
-              <p className="text-base md:text-lg text-muted-text font-sans font-light max-w-md leading-relaxed mb-12">
+              <p className="text-base md:text-lg text-foreground-muted font-sans font-light max-w-md leading-relaxed mb-12">
                 A sanctuary designed for the modern aesthetic. We blend cutting-edge techniques with editorial vision to reveal your most pristine self.
               </p>
             </Reveal>

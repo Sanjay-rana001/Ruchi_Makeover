@@ -47,7 +47,7 @@ export function TrustStats() {
   };
 
   return (
-    <section className="bg-surface py-20 border-b border-border">
+    <section className="bg-surface-muted py-20 border-b border-border/50">
       <Container>
         <motion.div 
           variants={container}
@@ -58,7 +58,7 @@ export function TrustStats() {
         >
           {siteData.stats.map((stat, idx) => (
             <motion.div key={idx} variants={item} className="flex flex-col gap-2">
-              <div className="text-4xl md:text-5xl font-serif text-foreground">
+              <div className="text-4xl md:text-5xl font-serif text-accent">
                 <CountUp from={0} to={stat.value} decimals={stat.decimals} suffix={stat.suffix} />
               </div>
               <span className="text-xs font-sans tracking-[0.2em] uppercase text-foreground-muted">

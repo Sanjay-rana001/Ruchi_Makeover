@@ -1,194 +1,123 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Clock, Tag } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { services } from "@/data/services";
-import Button from "@/components/ui/Button";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } 
+  },
+};
 
 export function ServiceList() {
-  const [activeService, setActiveService] = useState<string | null>(null);
-  
-  // Floating Image Cursor State
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  // Spring physics for smooth cursor following
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    // Center the image on the cursor
-    mouseX.set(e.clientX - 150); 
-    mouseY.set(e.clientY - 200);
-  };
-
   return (
-    <Section className="py-24 md:py-32 bg-surface relative" id="services" onMouseMove={handleMouseMove}>
+    <Section className="py-24 md:py-32 bg-background relative" id="services">
       <Container>
+        {/* Header Area */}
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
           <div>
-            <span className="text-xs font-bold tracking-widest uppercase text-primary mb-4 block">
+            <span className="text-sm font-bold tracking-widest uppercase text-accent mb-4 block">
               Our Services
             </span>
             <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] tracking-tight">
               Curated for you.
             </h2>
           </div>
+          <p className="text-foreground-muted max-w-md text-lg leading-relaxed">
+            Discover our premium range of beauty and styling services, designed to elevate your natural beauty with a touch of elegance.
+          </p>
         </div>
 
-        <div className="flex flex-col border-t border-border/40 relative">
-          {services.map((service) => (
-            <ServiceRow 
-              key={service.id} 
-              service={service} 
-              setActiveService={setActiveService} 
-            />
-          ))}
-
-          {/* Desktop Floating Image Preview */}
-          <div className="hidden lg:block pointer-events-none fixed inset-0 z-50 overflow-hidden">
-            <AnimatePresence>
-              {activeService && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  exit={{ opacity: 0, scale: 0.8, rotate: 5 }}
-                  transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                  style={{
-                    x: smoothX,
-                    y: smoothY,
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                  }}
-                  className="w-[300px] h-[400px] rounded-lg overflow-hidden shadow-2xl border border-white/20"
-                >
-                  {services.map((svc) => (
-                    svc.id === activeService && (
-                      <div key={svc.id} className="relative w-full h-full">
-                        <Image
-                          src={svc.image}
-                          alt={svc.title}
-                          fill
-                          className="object-cover"
-                          sizes="300px"
-                        />
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                          <span className="bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">
-                            View
-                          </span>
-                        </div>
-                      </div>
-                    )
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function ServiceRow({ service, setActiveService }: { service: any, setActiveService: (id: string | null) => void }) {
-  const [isMobileExpanded, setIsMobileExpanded] = useState(false);
-
-  return (
-    <div 
-      className="border-b border-border/40 group relative"
-      onMouseEnter={() => setActiveService(service.id)}
-      onMouseLeave={() => setActiveService(null)}
-    >
-      {/* Desktop View (Link) */}
-      <Link 
-        href={`/services/${service.slug}`}
-        className="hidden lg:flex items-center justify-between py-12 px-4 transition-colors duration-500 hover:bg-white/50"
-      >
-        <div className="flex items-baseline gap-12 transition-transform duration-500 group-hover:translate-x-4">
-          <span className="font-serif text-2xl text-foreground/30 font-medium">
-            {service.id}
-          </span>
-          <h3 className="font-serif text-5xl xl:text-6xl text-foreground tracking-tight uppercase">
-            {service.title}
-          </h3>
-        </div>
-        
-        <div className="flex items-center gap-8 transition-transform duration-500 group-hover:-translate-x-4">
-          <span className="text-sm text-foreground/50 max-w-xs text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            {service.shortDescription}
-          </span>
-          <ArrowRight strokeWidth={1.5} className="w-8 h-8 text-foreground/30 group-hover:text-primary transition-colors duration-500" />
-        </div>
-      </Link>
-
-      {/* Mobile / Tablet View (Accordion) */}
-      <div className="lg:hidden flex flex-col">
-        <button 
-          onClick={() => setIsMobileExpanded(!isMobileExpanded)}
-          className="flex items-center justify-between py-8 px-2 text-left w-full"
+        {/* Premium Grid Layout */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
         >
-          <div className="flex items-baseline gap-6">
-            <span className="font-serif text-xl text-foreground/40 font-medium">
-              {service.id}
-            </span>
-            <h3 className="font-serif text-2xl md:text-4xl text-foreground uppercase tracking-tight">
-              {service.title}
-            </h3>
-          </div>
-          <ChevronDown 
-            className={`w-6 h-6 text-foreground/40 transition-transform duration-500 ${isMobileExpanded ? "rotate-180" : ""}`} 
-          />
-        </button>
+          {services.map((service) => (
+            <motion.div key={service.id} variants={itemVariants} className="group h-full flex">
+              <Link 
+                href={`/services/${service.slug}`}
+                className="w-full flex flex-col bg-surface rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-2xl hover:border-accent-soft transition-all duration-500 ease-out hover:-translate-y-2 relative"
+              >
+                {/* Floating Glow Effect Behind Card */}
+                <div className="absolute inset-0 bg-accent-glow opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10 blur-2xl" />
 
-        <AnimatePresence>
-          {isMobileExpanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="px-2 pb-8 flex flex-col gap-6">
-                <div className="relative w-full h-[250px] rounded-sm overflow-hidden">
+                {/* Image Section */}
+                <div className="relative h-80 w-full overflow-hidden bg-surface-muted">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                </div>
-                
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  {service.shortDescription}
-                </p>
-
-                <div className="flex flex-col gap-2 py-4 border-y border-border/40">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-foreground/50 uppercase tracking-widest font-semibold text-xs">Duration</span>
-                    <span className="text-foreground">{service.duration}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-foreground/50 uppercase tracking-widest font-semibold text-xs">Starting Price</span>
-                    <span className="text-foreground">{service.price}</span>
+                  {/* Overlay Gradient for contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Floating Badges */}
+                  <div className="absolute top-5 left-5 flex gap-2">
+                    <span className="bg-white/95 backdrop-blur-md text-accent px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">
+                      {service.id}
+                    </span>
                   </div>
                 </div>
 
-                <Link href={`/services/${service.slug}`} className="w-full block">
-                  <Button variant="primary" className="w-full flex justify-center">View Service</Button>
-                </Link>
-              </div>
+                {/* Content Section */}
+                <div className="p-8 md:p-10 flex flex-col flex-grow bg-surface relative z-10 transition-colors duration-500">
+                  <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-foreground-muted text-sm leading-relaxed mb-8 flex-grow">
+                    {service.shortDescription}
+                  </p>
+                  
+                  {/* Info Tags with Vibrant Colors */}
+                  <div className="flex flex-col gap-4 pt-6 border-t border-border/50">
+                    <div className="flex items-center text-xs text-foreground font-semibold uppercase tracking-wider">
+                      <Clock className="w-4 h-4 mr-4 text-highlight stroke-2" />
+                      {service.duration}
+                    </div>
+                    <div className="flex items-center text-xs text-foreground font-semibold uppercase tracking-wider">
+                      <Tag className="w-4 h-4 mr-4 text-success stroke-2" />
+                      {service.price}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hover Action Footer */}
+                <div className="bg-surface-muted px-8 md:px-10 py-6 flex items-center justify-between transition-colors duration-500 group-hover:bg-accent-soft/20">
+                  <span className="text-xs font-bold uppercase tracking-widest text-foreground group-hover:text-accent-hover transition-colors">
+                    Explore Details
+                  </span>
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-border group-hover:border-accent group-hover:bg-accent transition-colors duration-500 shadow-sm">
+                    <ArrowRight className="w-4 h-4 text-foreground/50 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
+          ))}
+        </motion.div>
+      </Container>
+    </Section>
   );
 }

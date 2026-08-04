@@ -99,8 +99,8 @@ export function AboutSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="absolute top-12 -left-4 md:-left-12 bg-background/80 backdrop-blur-md px-6 py-4 flex flex-col gap-1 shadow-lg border border-border/50 z-20 rounded-sm"
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-primary">8+ Years</span>
-              <span className="text-[10px] uppercase tracking-wider text-foreground/60">Experience</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-accent">8+ Years</span>
+              <span className="text-[10px] uppercase tracking-wider text-foreground-muted">Experience</span>
             </motion.div>
             
           </div>
@@ -113,13 +113,13 @@ export function AboutSection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-xs font-bold tracking-widest uppercase text-primary mb-6 block">
+              <span className="text-xs font-bold tracking-widest uppercase text-accent mb-6 block">
                 Meet Your Beauty Expert
               </span>
               <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground tracking-tight mb-8">
                 A beauty experience created around you.
               </h3>
-              <div className="text-foreground/70 leading-relaxed flex flex-col gap-6 text-base md:text-lg">
+              <div className="text-foreground-muted leading-relaxed flex flex-col gap-6 text-base md:text-lg">
                 <p>
                   I believe that makeup should never feel like a mask. It should be a celebration of who you are. With over eight years of experience working with brides, celebrities, and everyday women, my philosophy remains simple: enhance, don't hide.
                 </p>
@@ -139,15 +139,15 @@ export function AboutSection() {
             >
               <div>
                 <span className="block text-xl font-serif text-foreground mb-1">500+</span>
-                <span className="text-xs font-semibold uppercase tracking-widest text-foreground/50">Happy Clients</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">Happy Clients</span>
               </div>
               <div>
                 <span className="block text-xl font-serif text-foreground mb-1">Certified</span>
-                <span className="text-xs font-semibold uppercase tracking-widest text-foreground/50">Professional</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">Professional</span>
               </div>
               <div>
                 <span className="block text-xl font-serif text-foreground mb-1">Premium</span>
-                <span className="text-xs font-semibold uppercase tracking-widest text-foreground/50">Products Only</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">Products Only</span>
               </div>
             </motion.div>
 
