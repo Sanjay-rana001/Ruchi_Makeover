@@ -11,7 +11,7 @@
   --muted-text: #8e5466; /* Muted burgundy */
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
