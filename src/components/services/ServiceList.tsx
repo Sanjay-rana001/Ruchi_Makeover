@@ -36,8 +36,13 @@ export function ServiceList() {
             <span className="text-sm font-bold tracking-widest uppercase text-accent mb-4 block">
               Our Services
             </span>
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] tracking-tight">
-              Curated for you.
+            <h2 className="font-serif leading-[1.1] tracking-tight flex flex-col">
+              <span className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] text-foreground">
+                Elegance in
+              </span>
+              <span className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] italic text-[#4A3236] font-light -mt-2 md:-mt-4 drop-shadow-sm">
+                Every Look.
+              </span>
             </h2>
           </div>
           <p className="text-foreground-muted max-w-md text-lg leading-relaxed">
