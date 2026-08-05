@@ -32,7 +32,7 @@ function CountUp({ from, to, decimals = 0, suffix = "" }: { from: number, to: nu
     <div className="flex items-baseline justify-center">
       <span ref={nodeRef} className="tabular-nums tracking-tight">{from.toFixed(decimals)}</span>
       {suffix && (
-        <span className="text-[#FF8596] text-2xl md:text-3xl ml-0.5 font-bold">
+        <span className="text-[#FF8596] text-lg sm:text-xl md:text-2xl lg:text-3xl ml-0.5 font-bold">
           {suffix}
         </span>
       )}
@@ -55,17 +55,17 @@ export function TrustStats() {
   };
 
   return (
-    <section className="relative py-12 md:py-16 bg-zinc-950 border-t border-zinc-900 overflow-hidden dark-section">
+    <section className="relative py-6 md:py-10 bg-zinc-950 border-t border-zinc-900 overflow-hidden dark-section">
       {/* Subtle background glow effect */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/30 via-zinc-950 to-zinc-950 pointer-events-none" />
       
-      <Container className="relative z-10">
+      <Container className="relative z-10 px-2 md:px-6">
         <motion.div 
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 md:divide-x divide-zinc-800/80"
+          className="flex justify-between md:grid md:grid-cols-4 gap-2 md:gap-0 md:divide-x divide-zinc-800/80 w-full"
         >
           {siteData.stats.map((stat, idx) => {
             const Icon = icons[idx] || Heart;
@@ -74,20 +74,20 @@ export function TrustStats() {
               <motion.div 
                 key={idx} 
                 variants={item} 
-                className="flex flex-col items-center justify-center group"
+                className="flex flex-col items-center justify-center group flex-1 md:px-4"
               >
                 {/* Icon Container with subtle hover effect */}
-                <div className="mb-4 p-3 bg-zinc-900/80 rounded-2xl text-[#FF8596] border border-zinc-800 group-hover:bg-zinc-800 transition-colors duration-500 shadow-inner shadow-white/5">
-                  <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                <div className="mb-2 md:mb-4 p-2 md:p-3 bg-zinc-900/80 rounded-xl md:rounded-2xl text-[#FF8596] border border-zinc-800 group-hover:bg-zinc-800 transition-colors duration-500 shadow-inner shadow-white/5">
+                  <Icon className="w-3.5 h-3.5 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                 </div>
                 
                 {/* Number */}
-                <div className="text-4xl md:text-5xl font-sans font-bold text-white mb-1">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-sans font-bold text-white mb-0.5 md:mb-1">
                   <CountUp from={0} to={stat.value} decimals={stat.decimals} suffix={stat.suffix} />
                 </div>
                 
                 {/* Label */}
-                <span className="text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase text-zinc-400 font-medium">
+                <span className="text-[8px] md:text-[10px] lg:text-xs font-sans tracking-[0.15em] md:tracking-[0.2em] uppercase text-zinc-400 font-medium text-center">
                   {stat.label}
                 </span>
               </motion.div>

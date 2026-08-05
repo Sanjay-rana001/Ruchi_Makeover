@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 w-full flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start justify-center relative z-[60] mt-2 -ml-3 md:ml-0">
+          <Link href="/" className="flex flex-col items-start justify-center relative z-[100] mt-2 -ml-3 md:ml-0">
             <Image 
               src="/media/images/logo3.png" 
               alt="Ruchi Makeover" 
@@ -51,14 +51,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Center Navigation with Curved White Tab */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 drop-shadow-sm">
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 drop-shadow-sm pointer-events-none">
             {/* Left Sweeping Flare SVG */}
             <svg className="absolute top-0 -left-[99px] w-[100px] h-12 text-white fill-current" viewBox="0 0 100 48" preserveAspectRatio="none">
               <path d="M 0 0 L 100 0 L 100 48 C 70 48 35 0 0 0 Z" />
             </svg>
             
             {/* White Background Block */}
-            <div className="relative z-10 bg-white h-12 px-8 lg:px-14 flex items-center justify-center gap-6 lg:gap-10">
+            <div className="relative z-10 bg-white h-12 px-8 lg:px-14 flex items-center justify-center gap-6 lg:gap-10 pointer-events-auto">
               {siteData.navigation.map((item) => (
                 <Link 
                   key={item.name} 
