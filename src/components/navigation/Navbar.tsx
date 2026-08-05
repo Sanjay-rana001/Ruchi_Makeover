@@ -41,7 +41,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start justify-center relative z-[60]">
             <Image 
-              src="/media/images/logo2.png" 
+              src="/media/images/logo3.png" 
               alt="Ruchi Makeover" 
               width={130} 
               height={40} 
