@@ -67,7 +67,7 @@ export function FeaturedLook() {
           </motion.div>
 
           {/* Right: Large Image with Parallax */}
-          <div className="lg:col-span-7 h-[400px] md:h-[500px] lg:h-[700px] w-full relative overflow-hidden rounded-sm order-1 lg:order-2">
+          <div className="lg:col-span-7 aspect-[4/5] md:aspect-auto md:h-[500px] lg:h-[700px] w-full relative overflow-hidden rounded-2xl order-1 lg:order-2 shadow-xl">
             <motion.div 
               style={{ y: imageY }}
               className="absolute inset-0 w-full h-[120%] -top-[10%]"
@@ -76,7 +76,7 @@ export function FeaturedLook() {
                 src="/media/images/party.png"
                 alt="Soft Glam Featured Look"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
             </motion.div>

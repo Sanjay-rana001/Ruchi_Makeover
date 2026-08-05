@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/navigation/Navbar";
 import { PageLoader } from "@/components/ui/PageLoader";
+import { Footer } from "@/components/navigation/Footer";
 
 const fontSans = Outfit({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
           <main className="flex-grow flex flex-col">
             {children}
           </main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

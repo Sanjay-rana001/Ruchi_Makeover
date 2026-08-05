@@ -12,14 +12,12 @@ const icons = [Users, Star, Clock, Heart];
 function CountUp({ from, to, decimals = 0, suffix = "" }: { from: number, to: number, decimals?: number, suffix?: string }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(nodeRef, { once: true, margin: "-10%" });
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
+    if (isInView) {
       const controls = animate(from, to, {
         duration: 2.5,
-        ease: [0.16, 1, 0.3, 1], // Custom spring-like ease out
+        ease: [0.16, 1, 0.3, 1],
         onUpdate(value) {
           if (nodeRef.current) {
             nodeRef.current.textContent = value.toFixed(decimals);
@@ -28,7 +26,7 @@ function CountUp({ from, to, decimals = 0, suffix = "" }: { from: number, to: nu
       });
       return () => controls.stop();
     }
-  }, [isInView, from, to, decimals, hasAnimated]);
+  }, [isInView, from, to, decimals]);
 
   return (
     <div className="flex items-baseline justify-center">
