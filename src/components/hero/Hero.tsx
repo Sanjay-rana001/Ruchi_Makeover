@@ -47,24 +47,34 @@ export function Hero() {
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
           >
             <Reveal delay={1.5} direction="up">
-              <span className="text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-accent mb-8 block font-medium">
+              <span className="text-[10px] md:text-[11px] font-sans tracking-[0.35em] uppercase text-[#FF8596] mb-12 block font-bold">
                 Professional Makeup Artist
               </span>
             </Reveal>
 
-            <div className="flex flex-col gap-1 mb-8">
+            <div className="flex flex-col mb-12 relative">
               <Reveal delay={1.7}>
-                <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-serif text-foreground leading-[1] tracking-[-0.02em] flex items-center gap-4">
-                  <span className="italic font-light text-foreground-muted">Flawless</span> bridal & party makeup.
+                <h1 className="flex flex-col font-serif tracking-tight">
+                  <span className="text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] italic text-[#4A3236] font-light leading-[1.1] drop-shadow-sm">
+                    Flawless
+                  </span>
+                  <span className="text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#332226] leading-[1.1] mt-1 md:mt-2">
+                    Bridal <span className="italic text-[#4A3236]/70 font-light">&</span> Party
+                  </span>
+                  <span className="text-[4rem] md:text-[5rem] lg:text-[6rem] text-[#332226] leading-[1.1]">
+                    Makeup
+                  </span>
                 </h1>
               </Reveal>
             </div>
 
             <Reveal delay={2.1}>
-              <div className="w-12 h-[1px] bg-accent mb-8" />
-              <p className="text-base md:text-lg text-foreground-muted font-sans font-light max-w-md leading-relaxed mb-12">
-                Expert makeup services tailored to enhance your natural features for your most special occasions.
-              </p>
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-10 h-[1px] bg-[#FF8596]/50" />
+                <p className="text-base md:text-lg text-foreground/70 font-sans font-light max-w-sm leading-relaxed">
+                  Expert makeup services tailored to enhance your natural features for your most special occasions.
+                </p>
+              </div>
             </Reveal>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">

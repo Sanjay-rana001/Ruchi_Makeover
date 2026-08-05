@@ -1,67 +1,106 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/data/site";
 import MobileMenu from "./MobileMenu";
-import { Menu, X } from "lucide-react";
-import Button from "../ui/Button";
+import { Menu, X, ChevronsRight } from "lucide-react";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOverDark, setIsOverDark] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const darkSections = document.querySelectorAll('.dark-section');
+      let isDark = false;
+      
+      darkSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        // Check if the middle of the navbar (y=32) is inside the dark section
+        if (rect.top <= 32 && rect.bottom >= 32) {
+          isDark = true;
+        }
+      });
+      
+      setIsOverDark(isDark);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setTimeout(handleScroll, 100);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black text-white h-14 flex items-center">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent text-foreground h-16 flex items-center transition-colors duration-300">
         <div className="container mx-auto px-6 w-full flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start justify-center relative z-[60]">
+          <Link href="/" className={`flex flex-col items-start justify-center relative z-[60] transition-colors duration-500 ${isOverDark ? "text-white" : "text-zinc-900"}`}>
             <div className="text-2xl font-serif font-bold tracking-widest leading-none">
               Ruchi
             </div>
-            <div className="text-[9px] tracking-[0.3em] uppercase text-white/70 mt-1">
+            <div className="text-[9px] tracking-[0.3em] uppercase opacity-90 mt-1">
               Makeover
             </div>
           </Link>
 
           {/* Desktop Center Navigation with Curved White Tab */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 h-full">
-            {/* Left Curve SVG */}
-            <svg className="w-6 h-6 absolute top-0 -left-6 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M0 0H24V24C24 10.7452 13.2548 0 0 0Z" />
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-0 drop-shadow-sm">
+            {/* Left Sweeping Flare SVG */}
+            <svg className="absolute top-0 -left-[99px] w-[100px] h-12 text-white fill-current" viewBox="0 0 100 48" preserveAspectRatio="none">
+              <path d="M 0 0 L 100 0 L 100 48 C 70 48 35 0 0 0 Z" />
             </svg>
             
             {/* White Background Block */}
-            <div className="bg-white h-full px-8 md:px-12 flex items-center justify-center rounded-b-2xl gap-6 md:gap-8 shadow-sm">
+            <div className="relative z-10 bg-white h-12 px-8 lg:px-14 flex items-center justify-center gap-6 lg:gap-10">
               {siteData.navigation.map((item) => (
                 <Link 
                   key={item.name} 
                   href={item.href}
-                  className="text-sm font-semibold tracking-wide text-zinc-800 hover:text-black transition-colors"
+                  className="text-[12px] font-bold tracking-wide text-zinc-800 hover:text-black transition-colors uppercase"
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
 
-            {/* Right Curve SVG */}
-            <svg className="w-6 h-6 absolute top-0 -right-6 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M24 0H0V24C0 10.7452 10.7452 0 24 0Z" />
+            {/* Right Sweeping Flare SVG */}
+            <svg className="absolute top-0 -right-[99px] w-[100px] h-12 text-white fill-current" viewBox="0 0 100 48" preserveAspectRatio="none">
+              <path d="M 0 0 L 100 0 C 65 0 30 48 0 48 Z" />
             </svg>
           </div>
 
           {/* Desktop Right Button */}
           <div className="hidden lg:flex items-center">
-            <Button variant="primary" href="#contact">
-              Contact Us
-            </Button>
+            <Link 
+              href="#contact" 
+              className="relative flex items-center p-1 bg-white border border-gray-100 rounded-full group overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              {/* Background Sweep */}
+              <div className="absolute inset-0 bg-white rounded-full -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-10" />
+
+              {/* Inner Pill */}
+              <div className="relative px-5 py-2 rounded-full flex items-center justify-center">
+                <div className="absolute inset-0 bg-black rounded-full z-0" />
+                <span className="relative z-20 text-white group-hover:text-black text-xs font-semibold transition-colors duration-500">
+                  Contact Us
+                </span>
+              </div>
+
+              {/* Sliding Arrow */}
+              <div className="relative z-20 flex items-center overflow-hidden h-4 w-5 mx-2">
+                <ChevronsRight className="absolute left-0 w-4 h-4 text-black transition-all duration-700 ease-in-out group-hover:translate-x-8" />
+                <ChevronsRight className="absolute left-0 w-4 h-4 text-black -translate-x-8 transition-all duration-700 ease-in-out group-hover:translate-x-0" />
+              </div>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
           <button 
-            className="lg:hidden relative z-[60] text-white p-2 -mr-2"
+            className={`lg:hidden relative z-[60] p-2 -mr-2 transition-colors duration-500 ${isOverDark ? "text-white" : "text-zinc-900"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >
