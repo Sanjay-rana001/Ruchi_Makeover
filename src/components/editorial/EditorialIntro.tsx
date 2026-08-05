@@ -1,22 +1,10 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
-
-const textReveal: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 1,
-      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
-    },
-  }),
-};
+import Image from "next/image";
 
 export function EditorialIntro() {
   return (
@@ -25,59 +13,92 @@ export function EditorialIntro() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
           {/* Left Side: Context & CTA */}
-          <div className="w-full lg:w-5/12 flex flex-col gap-10 order-2 lg:order-1">
+          <div className="w-full lg:w-5/12 flex flex-col gap-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex items-center gap-6"
             >
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-foreground/50">
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-500">
                 The Experience
               </span>
-              <div className="h-px flex-1 bg-foreground/10" />
+              <div className="h-px flex-1 bg-zinc-200" />
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="flex flex-col gap-8"
             >
-              <p className="text-foreground/70 leading-relaxed text-lg max-w-md font-light">
+              <h2 className="font-serif text-4xl md:text-5xl leading-tight text-zinc-900 tracking-tight">
+                Beauty is <span className="italic font-light text-zinc-500">personal.</span><br/>
+                Your experience should be too.
+              </h2>
+              
+              <p className="text-zinc-600 leading-relaxed text-lg max-w-md font-light">
                 We believe that every face tells a unique story. Step into a space where luxury meets authenticity, and let us craft a look that is unapologetically yours.
               </p>
               
               <div>
-                <Button variant="primary" className="group">
+                <Button variant="primary">
                   Meet Your Beauty Expert
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Button>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Side: Main Heading */}
-          <div className="w-full lg:w-7/12 order-1 lg:order-2">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground tracking-tight">
-              <span className="block overflow-hidden pb-3">
-                <motion.span custom={0} variants={textReveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="block">
-                  Beauty is <span className="italic font-light text-foreground/80">personal.</span>
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden pb-3">
-                <motion.span custom={1} variants={textReveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="block">
-                  Your experience
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden pb-3">
-                <motion.span custom={2} variants={textReveal} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="block text-foreground/80">
-                  should be too.
-                </motion.span>
-              </span>
-            </h2>
+          {/* Right Side: Editorial Image Collage */}
+          <div className="w-full lg:w-7/12 relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center mt-12 lg:mt-0">
+            
+            {/* Main Portrait */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute right-0 top-0 w-[80%] h-full rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image 
+                src="/media/images/hero.jpg" 
+                alt="Ruchi Makeover Signature Style" 
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/10" />
+            </motion.div>
+
+            {/* Overlapping Detail Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: -40, y: 40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute left-0 bottom-10 w-[45%] h-[55%] rounded-2xl overflow-hidden shadow-2xl border-4 border-background z-10"
+            >
+              <Image 
+                src="/media/images/service-facial.jpg" 
+                alt="Luxury Beauty Detail" 
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </motion.div>
+
+            {/* Floating Glass Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              className="absolute -left-6 top-1/4 z-20 bg-white/80 backdrop-blur-md border border-white/40 px-6 py-4 rounded-2xl shadow-xl"
+            >
+              <p className="font-serif text-xl text-zinc-900 italic">Unapologetically Yours</p>
+            </motion.div>
           </div>
 
         </div>

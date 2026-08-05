@@ -32,22 +32,22 @@ export function Hero() {
   const imageY = mousePos.y * 10;
 
   return (
-    <Section fullBleed className="relative min-h-[85vh] lg:min-h-[90vh] pt-20 flex items-center bg-gradient-to-br from-background via-surface-muted to-accent-glow p-0 m-0 border-b border-border overflow-hidden">
+    <Section fullBleed className="relative min-h-[85vh] lg:min-h-[90vh] flex bg-gradient-to-br from-background via-surface-muted to-accent-glow p-0 m-0 border-b border-border overflow-hidden">
       
       {/* Subtle luxury editorial texture/grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(var(--foreground) 1.5px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <Container className="w-full relative z-10 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-20 h-full">
           
           {/* Left: Text Content */}
           <motion.div 
-            className="lg:col-span-6 flex flex-col justify-center h-full pt-8 lg:pt-20"
+            className="lg:col-span-6 flex flex-col justify-center h-full"
             animate={{ x: textX, y: textY }}
             transition={{ type: "spring", stiffness: 50, damping: 20 }}
           >
             <Reveal delay={1.5} direction="up">
-              <span className="text-[10px] md:text-[11px] font-sans tracking-[0.35em] uppercase text-[#FF8596] mb-12 block font-bold">
+              <span className="text-[10px] md:text-[11px] font-sans tracking-[0.35em] uppercase text-[#FF8596] mb-6 block font-bold">
                 Professional Makeup Artist
               </span>
             </Reveal>

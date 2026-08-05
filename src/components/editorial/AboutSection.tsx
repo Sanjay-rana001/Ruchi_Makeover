@@ -8,18 +8,19 @@ import { Section } from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
 const maskVariants = {
-  hidden: { clipPath: "inset(100% 0 0 0)" },
+  hidden: { opacity: 0, y: 40 },
   visible: { 
-    clipPath: "inset(0% 0 0 0)",
-    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }
   }
 };
 
 const imageScaleVariants = {
-  hidden: { scale: 1.1 },
+  hidden: { scale: 1.05 },
   visible: { 
     scale: 1,
-    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }
+    transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }
   }
 };
 
@@ -49,20 +50,19 @@ export function AboutSection() {
             <motion.div 
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               variants={maskVariants}
-              className="absolute left-0 top-0 w-[85%] md:w-[75%] h-[85%] md:h-[90%] overflow-hidden bg-background"
+              className="absolute left-0 top-0 w-[85%] md:w-[75%] h-[85%] md:h-[90%] overflow-hidden bg-background rounded-2xl shadow-xl"
             >
               <motion.div 
                 variants={imageScaleVariants} 
-                style={{ y: y1 }}
-                className="w-full h-[120%] -top-[10%] relative"
+                className="w-full h-full relative"
               >
                 <Image
                   src="/media/images/about.png"
                   alt="Top Beauty Expert Portrait"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 85vw, 40vw"
                 />
               </motion.div>
@@ -72,20 +72,19 @@ export function AboutSection() {
             <motion.div 
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px" }}
               variants={maskVariants}
-              className="absolute right-0 bottom-0 w-[55%] md:w-[45%] h-[40%] md:h-[50%] overflow-hidden bg-background z-10 shadow-2xl"
+              className="absolute right-0 bottom-0 w-[55%] md:w-[45%] h-[40%] md:h-[50%] overflow-hidden bg-background z-10 shadow-2xl rounded-2xl"
             >
               <motion.div 
                 variants={imageScaleVariants}
-                style={{ y: y2 }}
-                className="w-full h-[140%] -top-[20%] relative"
+                className="w-full h-full relative"
               >
                 <Image
-                  src="/media/images/packages.png"
-                  alt="Premium Luxury Makeup Products"
+                  src="/media/images/premium-bride.png"
+                  alt="Premium Luxury Bridal Makeup"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 55vw, 25vw"
                 />
               </motion.div>
@@ -102,7 +101,6 @@ export function AboutSection() {
               <span className="text-xs font-bold uppercase tracking-widest text-accent">8+ Years</span>
               <span className="text-[10px] uppercase tracking-wider text-foreground-muted">Experience</span>
             </motion.div>
-            
           </div>
 
           {/* Right: Story Content */}
@@ -110,7 +108,7 @@ export function AboutSection() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8 }}
             >
               <span className="text-xs font-bold tracking-widest uppercase text-accent mb-6 block">
@@ -133,7 +131,7 @@ export function AboutSection() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid grid-cols-2 gap-y-6 gap-x-4 py-8 border-y border-border/50"
             >
@@ -154,7 +152,7 @@ export function AboutSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Button variant="primary">Read My Story</Button>

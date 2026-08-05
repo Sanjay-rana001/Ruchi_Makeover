@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/data/site";
 import MobileMenu from "./MobileMenu";
@@ -38,13 +39,15 @@ export default function Navbar() {
         <div className="container mx-auto px-6 w-full flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className={`flex flex-col items-start justify-center relative z-[60] transition-colors duration-500 ${isOverDark ? "text-white" : "text-zinc-900"}`}>
-            <div className="text-2xl font-serif font-bold tracking-widest leading-none">
-              Ruchi
-            </div>
-            <div className="text-[9px] tracking-[0.3em] uppercase opacity-90 mt-1">
-              Makeover
-            </div>
+          <Link href="/" className="flex flex-col items-start justify-center relative z-[60]">
+            <Image 
+              src="/media/images/logo2.png" 
+              alt="Ruchi Makeover" 
+              width={130} 
+              height={40} 
+              className={`object-contain transition-all duration-500 ${isOverDark ? "brightness-0 invert" : ""}`}
+              priority
+            />
           </Link>
 
           {/* Desktop Center Navigation with Curved White Tab */}
