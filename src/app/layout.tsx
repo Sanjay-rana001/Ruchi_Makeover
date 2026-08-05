@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Cormorant_Garamond, Bodoni_Moda } from "next/font/google";
+import { Outfit, Cormorant_Garamond, Cinzel } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/navigation/Navbar";
@@ -18,9 +18,9 @@ const fontSerif = Cormorant_Garamond({
   variable: "--font-serif",
 });
 
-const fontDisplay = Bodoni_Moda({
+const fontDisplay = Cinzel({
   weight: ["400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   subsets: ["latin"],
   variable: "--font-display",
 });
