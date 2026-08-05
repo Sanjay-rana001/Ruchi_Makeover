@@ -45,7 +45,7 @@ export default function Navbar() {
               alt="Ruchi Makeover" 
               width={130} 
               height={40} 
-              className={`object-contain transition-all duration-500 ${isOverDark ? "brightness-0 invert" : ""}`}
+              className={`object-contain transition-all duration-500 brightness-0 ${isOverDark ? "invert" : ""}`}
               priority
             />
           </Link>
