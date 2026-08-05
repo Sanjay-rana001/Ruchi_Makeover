@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Cormorant_Garamond } from "next/font/google";
+import { Outfit, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/navigation/Navbar";
@@ -11,8 +11,8 @@ const fontSans = Outfit({
   variable: "--font-sans",
 });
 
-const fontSerif = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600"],
+const fontSerif = DM_Serif_Display({
+  weight: ["400"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-serif",

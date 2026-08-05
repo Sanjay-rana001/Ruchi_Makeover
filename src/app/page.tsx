@@ -7,6 +7,7 @@ import { ServiceList } from "@/components/services/ServiceList";
 import { CinematicParallax } from "@/components/parallax/CinematicParallax";
 import { FeaturedLook } from "@/components/editorial/FeaturedLook";
 import { ProcessSection } from "@/components/process/ProcessSection";
+import { ContactSection } from "@/components/contact/ContactSection";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <CinematicParallax />
       <FeaturedLook />
       <ProcessSection />
+      <ContactSection />
     </>
   );
 }

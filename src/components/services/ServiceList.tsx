@@ -31,16 +31,16 @@ export function ServiceList() {
     <Section className="py-24 md:py-32 bg-background relative" id="services">
       <Container>
         {/* Header Area */}
-        <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
             <span className="text-sm font-bold tracking-widest uppercase text-accent mb-4 block">
               Our Services
             </span>
             <h2 className="font-serif leading-[1.1] tracking-tight flex flex-col">
-              <span className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] text-foreground">
+              <span className="text-[2rem] md:text-[3.5rem] lg:text-[4.5rem] text-foreground">
                 Elegance in
               </span>
-              <span className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] italic text-[#4A3236] font-light -mt-2 md:-mt-4 drop-shadow-sm">
+              <span className="text-[2.75rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[6rem] italic text-[#4A3236] font-light -mt-1 md:-mt-4 drop-shadow-sm">
                 Every Look.
               </span>
             </h2>
@@ -63,10 +63,10 @@ export function ServiceList() {
               const isBanner = index === 5;
               
               return (
-              <motion.div key={service.id} variants={itemVariants} className={`group ${isLarge ? 'lg:col-span-2' : ''} ${isBanner ? 'lg:col-span-3 md:col-span-2' : ''}`}>
+              <motion.div key={service.id} variants={itemVariants} className={`group h-full ${isLarge ? 'lg:col-span-2' : ''} ${isBanner ? 'lg:col-span-3 md:col-span-2' : ''}`}>
                 <Link 
                   href={`/services/${service.slug}`}
-                  className={`block relative ${isBanner ? 'h-[300px] md:h-[350px]' : (isLarge ? 'h-[400px] md:h-[500px]' : 'h-[380px] md:h-[420px]')} w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 border border-border/20`}
+                  className={`block relative h-full ${isBanner ? 'min-h-[300px] md:min-h-[350px]' : (isLarge ? 'min-h-[400px] md:min-h-[500px]' : 'min-h-[380px] md:min-h-[420px]')} w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-2 border border-border/20`}
                 >
                   <Image
                     src={service.image}
@@ -93,7 +93,7 @@ export function ServiceList() {
                   {/* Bottom Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col justify-end h-full">
                     <div className="mt-auto transform transition-transform duration-500 translate-y-6 group-hover:translate-y-0">
-                      <h3 className={`font-serif ${isLarge || isBanner ? 'text-4xl md:text-5xl' : 'text-3xl md:text-4xl'} text-white mb-2 group-hover:text-accent-soft transition-colors duration-300 drop-shadow-md`}>
+                      <h3 className={`font-sans font-semibold tracking-tight ${isLarge || isBanner ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} text-white mb-2 group-hover:text-accent-soft transition-colors duration-300 drop-shadow-md`}>
                         {service.title}
                       </h3>
                       <p className={`text-white/80 ${isLarge || isBanner ? 'text-base' : 'text-sm'} leading-relaxed mb-6 line-clamp-2 drop-shadow-sm max-w-xl`}>

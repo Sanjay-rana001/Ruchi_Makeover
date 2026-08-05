@@ -39,9 +39,9 @@ export default function Navbar() {
         <div className="container mx-auto px-6 w-full flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start justify-center relative z-[100] mt-2 -ml-3 md:ml-0">
+          <Link href="/" className="flex flex-col items-start justify-center relative z-[100] mt-4 -ml-5 md:mt-0 md:ml-0">
             <Image 
-              src="/media/images/logo3.png" 
+              src="/media/images/logo5.png" 
               alt="Ruchi Makeover" 
               width={130} 
               height={40} 
