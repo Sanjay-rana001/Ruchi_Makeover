@@ -40,7 +40,7 @@ export function ContactSection() {
               <div className="mt-12 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-8 border-t border-zinc-800/50 pt-8">
                 <div>
                   <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase block mb-1">Direct Line</span>
-                  <a href="tel:+919876543210" className="text-xl md:text-2xl font-sans font-light tracking-wide text-white hover:text-[#FF8596] transition-colors">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="text-xl md:text-2xl font-sans font-light tracking-wide text-white hover:text-[#FF8596] transition-colors whitespace-nowrap">+91 98765 43210</a>
                 </div>
                 <div>
                   <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase block mb-1">Email Us</span>
