@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Serif_Display } from "next/font/google";
+import { Outfit, Cormorant_Garamond, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/navigation/Navbar";
@@ -11,11 +11,18 @@ const fontSans = Outfit({
   variable: "--font-sans",
 });
 
-const fontSerif = DM_Serif_Display({
-  weight: ["400"],
+const fontSerif = Cormorant_Garamond({
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-serif",
+});
+
+const fontDisplay = DM_Serif_Display({
+  weight: ["400"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${fontSans.variable} ${fontSerif.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col`}
+        className={`${fontSans.variable} ${fontSerif.variable} ${fontDisplay.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col`}
       >
         <PageLoader />
         <SmoothScroll>

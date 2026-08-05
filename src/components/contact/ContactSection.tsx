@@ -24,7 +24,7 @@ export function ContactSection() {
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-6">
+              <h2 className="font-[family-name:var(--font-display)] text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-6">
                 Ready for your <br className="hidden md:block" />
                 <span className="text-[#FF8596]">transformation?</span>
               </h2>
