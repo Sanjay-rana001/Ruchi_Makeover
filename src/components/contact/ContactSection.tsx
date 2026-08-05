@@ -8,7 +8,7 @@ import { Calendar, Phone, User, Sparkles } from "lucide-react";
 
 export function ContactSection() {
   return (
-    <Section className="py-24 md:py-32 bg-zinc-950 relative overflow-hidden" id="contact">
+    <Section className="dark-section py-24 md:py-32 bg-zinc-950 relative overflow-hidden" id="contact">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#FF8596]/10 via-zinc-950 to-zinc-950 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />

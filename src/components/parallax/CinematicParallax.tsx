@@ -23,7 +23,7 @@ export function CinematicParallax() {
   const textOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <Section className="relative h-[60vh] md:h-[80vh] min-h-[400px] md:min-h-[600px] w-full overflow-hidden bg-zinc-950" id="philosophy">
+    <Section className="dark-section relative h-[60vh] md:h-[80vh] min-h-[400px] md:min-h-[600px] w-full overflow-hidden bg-zinc-950" id="philosophy">
       <div ref={containerRef} className="absolute inset-0 w-full h-full">
         {/* Parallax Image Layer */}
         <motion.div 
