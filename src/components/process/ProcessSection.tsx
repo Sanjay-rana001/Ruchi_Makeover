@@ -83,7 +83,7 @@ export function ProcessSection() {
           </div>
 
           {/* Right: Sticky Image Container */}
-          <div className="w-1/2 h-[600px] sticky top-32 rounded-lg overflow-hidden shadow-2xl">
+          <div className="w-1/2 h-[450px] lg:h-[500px] sticky top-24 lg:top-32 rounded-lg overflow-hidden shadow-2xl">
             {steps.map((step, index) => (
               <ProcessImage 
                 key={step.id} 

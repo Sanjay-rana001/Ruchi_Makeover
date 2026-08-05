@@ -38,7 +38,7 @@ export function Hero() {
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(var(--foreground) 1.5px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <Container className="w-full relative z-10 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-20 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pt-28 lg:pt-0 pb-20 h-full">
           
           {/* Left: Text Content */}
           <motion.div 
@@ -55,13 +55,13 @@ export function Hero() {
             <div className="flex flex-col mb-12 relative">
               <Reveal delay={1.7}>
                 <h1 className="flex flex-col font-serif tracking-tight">
-                  <span className="text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] italic text-[#4A3236] font-light leading-[1.1] drop-shadow-sm">
+                  <span className="text-[4rem] md:text-[6.5rem] lg:text-[7.5rem] italic text-[#4A3236] font-light leading-[1.1] drop-shadow-sm">
                     Flawless
                   </span>
-                  <span className="text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#332226] leading-[1.1] mt-1 md:mt-2">
+                  <span className="text-[2.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#332226] leading-[1.1] mt-1 md:mt-2">
                     Bridal <span className="italic text-[#4A3236]/70 font-light">&</span> Party
                   </span>
-                  <span className="text-[4rem] md:text-[5rem] lg:text-[6rem] text-[#332226] leading-[1.1]">
+                  <span className="text-[3rem] md:text-[5rem] lg:text-[6rem] text-[#332226] leading-[1.1]">
                     Makeup
                   </span>
                 </h1>
